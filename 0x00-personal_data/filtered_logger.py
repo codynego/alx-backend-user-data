@@ -10,7 +10,6 @@ from os import environ
 import mysql.connector
 
 
-
 def filter_datum(fields: List[str],
                  redaction: str,
                  message: str,
@@ -62,7 +61,9 @@ def get_logger() -> logging.Logger:
 
 
 def get_db() -> mysql.connector.connection.MySQLConnection:
-    """ Returns a connector to a MySQL database """
+    """
+    Returns a connector to a MySQL database
+    """
     username = environ.get("PERSONAL_DATA_DB_USERNAME", "root")
     password = environ.get("PERSONAL_DATA_DB_PASSWORD", "")
     host = environ.get("PERSONAL_DATA_DB_HOST", "localhost")
@@ -73,7 +74,6 @@ def get_db() -> mysql.connector.connection.MySQLConnection:
                                                      host=host,
                                                      database=db_name)
     return cnx
-
 
 
 def main():
